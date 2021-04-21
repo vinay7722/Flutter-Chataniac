@@ -40,16 +40,16 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Chat',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primaryColor: Color(0xff145C9E),
-          scaffoldBackgroundColor: Colors.black,
-          accentColor: Color(0xff007EF4),
-          fontFamily: "OverpassRegular",
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: userIsLoggedIn != null ?  userIsLoggedIn ? ChatRoom() : Authenticate()
+      title: 'Chat',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Color(0xff145C9E),
+        scaffoldBackgroundColor: Colors.black,
+        accentColor: Color(0xff007EF4),
+        fontFamily: "OverpassRegular",
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: userIsLoggedIn != null ?  userIsLoggedIn ? ChatRoom() : Authenticate()
           : Container(
         child: Center(
           child: Authenticate(),

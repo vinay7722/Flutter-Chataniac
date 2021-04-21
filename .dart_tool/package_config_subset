@@ -122,6 +122,10 @@ path_provider_windows
 2.12
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.0/
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.0/lib/
+pinput
+2.12
+file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/pinput-1.2.0/
+file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/pinput-1.2.0/lib/
 platform
 2.12
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.0.0/
@@ -224,6 +228,6 @@ file:///C:/src/flutter/packages/flutter_web_plugins/
 file:///C:/src/flutter/packages/flutter_web_plugins/lib/
 chataniac
 2.7
-file:///D:/flutter/my/chataniac/
-file:///D:/flutter/my/chataniac/lib/
+file:///D:/flutter/my/Flutter-Chataniac/
+file:///D:/flutter/my/Flutter-Chataniac/lib/
 2

@@ -206,6 +206,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "pinput",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/pinput-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "platform",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.0.0",
       "packageUri": "lib/",
@@ -344,7 +350,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-04-13T12:25:17.593687Z",
+  "generated": "2021-04-21T10:50:54.181961Z",
   "generator": "pub",
   "generatorVersion": "2.12.2"
 }
