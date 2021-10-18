@@ -1,6 +1,6 @@
 # chataniac
 
-A new Flutter application.
+A new Flutter application. It is a full fledged chat application
 
 ## Getting Started
 
