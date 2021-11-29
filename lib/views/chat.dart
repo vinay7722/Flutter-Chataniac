@@ -73,8 +73,11 @@ class _ChatState extends State<Chat> {
       body: Container(
         child: Stack(
           children: [
-            chatMessages(),
-            Container(alignment: Alignment.bottomCenter,
+            Container(child: chatMessages(),
+              padding: EdgeInsets.only(bottom: 65),
+            ),
+            Container(
+              alignment: Alignment.bottomCenter,
               width: MediaQuery
                   .of(context)
                   .size
