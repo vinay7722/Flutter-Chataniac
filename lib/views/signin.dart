@@ -35,6 +35,7 @@ class _SignInState extends State<SignIn> {
         isLoading = true;
       });
 
+
       await authService
           .signInWithEmailAndPassword(
           emailEditingController.text, passwordEditingController.text)
@@ -55,9 +56,6 @@ class _SignInState extends State<SignIn> {
         } else {
           setState(() {
             isLoading = false;
-
-
-            //show snackbar
           });
         }
       });
@@ -160,17 +158,22 @@ class _SignInState extends State<SignIn> {
             SizedBox(
               height: 16,
             ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 16),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: Colors.white),
-              width: MediaQuery.of(context).size.width,
-              child: Text(
-                "Sign In with Google",
-                style:
-                TextStyle(fontSize: 17, color: CustomTheme.textColor),
-                textAlign: TextAlign.center,
+            GestureDetector(
+              onTap: () async {
+               await authService.signInWithGoogle(context);
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 16),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.white),
+                width: MediaQuery.of(context).size.width,
+                child: Text(
+                  "Sign In with Google",
+                  style:
+                  TextStyle(fontSize: 17, color: CustomTheme.textColor),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
             SizedBox(
