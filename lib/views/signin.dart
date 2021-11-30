@@ -103,11 +103,11 @@ class _SignInState extends State<SignIn> {
                                 },
                                 controller: emailEditingController,
                                 style: simpleTextStyle(),
-                                decoration: textFieldInputDecoration("email"),
+                                decoration: textFieldInputDecoration("Email"),
                               ),
                             ),
                           ),
-                          SizedBox(height: height * 0.01),
+                          SizedBox(height: height * 0.03),
                           Material(
                             elevation: 2.0,
                             borderRadius: BorderRadius.circular(5),
@@ -125,7 +125,7 @@ class _SignInState extends State<SignIn> {
                                 },
                                 style: simpleTextStyle(),
                                 controller: passwordEditingController,
-                                decoration: textFieldInputDecoration("password"),
+                                decoration: textFieldInputDecoration("Password"),
                               ),
                             ),
                           ),
@@ -169,11 +169,7 @@ class _SignInState extends State<SignIn> {
                           padding: EdgeInsets.symmetric(vertical: 16),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),//const Color(0xff007EF4) const Color(0xff2A75BC)
-                              gradient :LinearGradient(
-                                begin: Alignment.topLeft,
-                                end:Alignment(0.8, 0.0),
-                                colors :[Color(0xff007EF4),Color(0xff2A75BC)],
-                              )
+                              color: Colors.blueAccent
                           ),
                           width: MediaQuery.of(context).size.width,
                           child: Text(
@@ -195,7 +191,7 @@ class _SignInState extends State<SignIn> {
                         padding: EdgeInsets.symmetric(vertical: 16),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
-                            color: Colors.blue),
+                            color: Colors.blueAccent),
                         width: MediaQuery.of(context).size.width,
                         child: Text(
                           "Sign In with Google",
