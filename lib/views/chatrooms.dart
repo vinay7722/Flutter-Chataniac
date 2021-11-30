@@ -121,9 +121,9 @@ class ChatRoomsTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(25),
           child: Container(
             decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.15),//CustomTheme.colorAccent,
+                color: Colors.grey.withOpacity(0.2),//CustomTheme.colorAccent,
                 borderRadius: BorderRadius.circular(25)),
-            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
             child: Row(
               children: [
                 Container(
