@@ -167,7 +167,7 @@ class _SignInState extends State<SignIn> {
                       padding: EdgeInsets.symmetric(vertical: 16),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
-                          color: Colors.white),
+                          color: Colors.blue),
                       width: MediaQuery.of(context).size.width,
                       child: Text(
                         "Sign In with Google",
@@ -193,7 +193,7 @@ class _SignInState extends State<SignIn> {
                           child: Text(
                             "Register now",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Colors.black87,
                                 fontSize: 16,
                                 decoration: TextDecoration.underline),
                           ),
