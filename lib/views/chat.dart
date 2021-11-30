@@ -155,7 +155,7 @@ class MessageTile extends StatelessWidget {
           child: Text(message,
               textAlign: TextAlign.start,
               style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black87,
                   fontSize: 16,
                   fontFamily: 'OverpassRegular',
                   fontWeight: FontWeight.w300)),
@@ -176,12 +176,12 @@ class MessageTile extends StatelessWidget {
                 bottomRight: Radius.circular(23)),
             gradient: LinearGradient(
               colors: sendByMe ? [
-                const Color(0xff007EF4),
-                const Color(0xff2A75BC)
+                const Color(0xff4b86b4), //4b86b4  ff007EF4
+                const Color(0xff63ace5) //63ace5    ff2A75BC
               ]
                   : [
-                const Color(0x1AFFFFFF),
-                const Color(0x1AFFFFFF)
+                const Color(0x1A536872), //aaaaaa   1AFFFFFF
+                const Color(0x1A36454f) //bbbbbb    1AFFFFFF
               ],
 
             ),
