@@ -80,7 +80,7 @@ class _SignInState extends State<SignIn> {
               padding: EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                   children: [
-                    Spacer(),
+                    SizedBox(height: height * 0.4,),
                     Form(
                       key: formKey,
                       child: Column(
@@ -93,21 +93,24 @@ class _SignInState extends State<SignIn> {
                                 borderRadius: BorderRadius.circular(5),
                                 color: Colors.grey.withOpacity(0.1)
                               ),
-                              child: TextFormField(
-                                validator: (val) {
-                                  return RegExp(
-                                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                      .hasMatch(val)
-                                      ? null
-                                      : "Please Enter Correct Email";
-                                },
-                                controller: emailEditingController,
-                                style: simpleTextStyle(),
-                                decoration: textFieldInputDecoration("Email"),
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 15),
+                                child: TextFormField(
+                                  validator: (val) {
+                                    return RegExp(
+                                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                        .hasMatch(val)
+                                        ? null
+                                        : "Please Enter Correct Email";
+                                  },
+                                  controller: emailEditingController,
+                                  style: simpleTextStyle(),
+                                  decoration: textFieldInputDecoration("Enter email"),
+                                ),
                               ),
                             ),
                           ),
-                          SizedBox(height: height * 0.03),
+                          SizedBox(height: height * 0.01),
                           Material(
                             elevation: 2.0,
                             borderRadius: BorderRadius.circular(5),
@@ -116,16 +119,19 @@ class _SignInState extends State<SignIn> {
                                   borderRadius: BorderRadius.circular(5),
                                   color: Colors.grey.withOpacity(0.1)
                               ),
-                              child: TextFormField(
-                                obscureText: true,
-                                validator: (val) {
-                                  return val.length > 6
-                                      ? null
-                                      : "Enter Password 6+ characters";
-                                },
-                                style: simpleTextStyle(),
-                                controller: passwordEditingController,
-                                decoration: textFieldInputDecoration("Password"),
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 15),
+                                child: TextFormField(
+                                  obscureText: true,
+                                  validator: (val) {
+                                    return val.length > 6
+                                        ? null
+                                        : "Enter Password 6+ characters";
+                                  },
+                                  style: simpleTextStyle(),
+                                  controller: passwordEditingController,
+                                  decoration: textFieldInputDecoration("Enter password"),
+                                ),
                               ),
                             ),
                           ),
@@ -169,7 +175,11 @@ class _SignInState extends State<SignIn> {
                           padding: EdgeInsets.symmetric(vertical: 16),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),//const Color(0xff007EF4) const Color(0xff2A75BC)
-                              color: Colors.blueAccent
+                              gradient :LinearGradient(
+                                begin: Alignment.topLeft,
+                                end:Alignment(0.8, 0.0),
+                                colors :[Color(0xff007EF4),Color(0xff2A75BC)],
+                              )
                           ),
                           width: MediaQuery.of(context).size.width,
                           child: Text(
@@ -191,7 +201,7 @@ class _SignInState extends State<SignIn> {
                         padding: EdgeInsets.symmetric(vertical: 16),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
-                            color: Colors.blueAccent),
+                            color: Colors.blue),
                         width: MediaQuery.of(context).size.width,
                         child: Text(
                           "Sign In with Google",
