@@ -57,6 +57,7 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
       appBar: appBarMain(context),
       body: isLoading ? Container(child: Center(child: CircularProgressIndicator(),),) :  Container(
+
         padding: EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
@@ -71,7 +72,7 @@ class _SignUpState extends State<SignUp> {
                     validator: (val){
                       return val.isEmpty || val.length < 3 ? "Enter Username 3+ characters" : null;
                     },
-                    decoration: textFieldInputDecoration("username"),
+                    decoration: textFieldInputDecoration("Enter Username"),
                   ),
                   TextFormField(
                     controller: emailEditingController,
@@ -80,12 +81,12 @@ class _SignUpState extends State<SignUp> {
                       return RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(val) ?
                       null : "Enter correct email";
                     },
-                    decoration: textFieldInputDecoration("email"),
+                    decoration: textFieldInputDecoration("Enter Email"),
                   ),
                   TextFormField(
                     obscureText: true,
                     style: simpleTextStyle(),
-                    decoration: textFieldInputDecoration("password"),
+                    decoration: textFieldInputDecoration("Enter Password"),
                     controller: passwordEditingController,
                     validator:  (val){
                       return val.length < 6 ? "Enter Password 6+ characters" : null;
@@ -106,9 +107,7 @@ class _SignUpState extends State<SignUp> {
                 padding: EdgeInsets.symmetric(vertical: 16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  gradient: LinearGradient(
-                      colors: [const Color(0xff007EF4), const Color(0xff2A75BC)],
-                    )),
+                    color: Colors.blueAccent),
                 width: MediaQuery.of(context).size.width,
                 child: Text(
                   "Sign Up",
@@ -127,11 +126,11 @@ class _SignUpState extends State<SignUp> {
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 16),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30), color: Colors.white),
+                    borderRadius: BorderRadius.circular(30), color: Colors.blueAccent),
                 width: MediaQuery.of(context).size.width,
                 child: Text(
                   "Sign Up with Google",
-                  style: TextStyle(fontSize: 17, color: CustomTheme.textColor),
+                  style: simpleTextStyle(),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -153,7 +152,7 @@ class _SignUpState extends State<SignUp> {
                   child: Text(
                     "SignIn now",
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black87,
                         fontSize: 16,
                         decoration: TextDecoration.underline),
                   ),
