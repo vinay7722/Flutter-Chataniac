@@ -27,28 +27,23 @@ class _SignUpState extends State<SignUp> {
   bool isLoading = false;
 
   signUp() async {
-    print("30 line");
+
     if(formKey.currentState.validate()){
       setState(() {
-        print("33 line");
         isLoading = true;
       });
-      print("36 line");
       await authService.signUpWithEmailAndPassword(emailEditingController.text,
           passwordEditingController.text).then((result){
         if(result != null){
-          print("40 line");
           Map<String,String> userDataMap = {
             "userName" : usernameEditingController.text,
             "userEmail" : emailEditingController.text
           };
-          print("45 line");
           databaseMethods.addUserInfo(userDataMap);
 
           HelperFunctions.saveUserLoggedInSharedPreference(true);
           HelperFunctions.saveUserNameSharedPreference(usernameEditingController.text);
           HelperFunctions.saveUserEmailSharedPreference(emailEditingController.text);
-          print("51 line");
           Navigator.pushReplacement(context, MaterialPageRoute(
               builder: (context) => ChatRoom()
           ));
@@ -125,15 +120,20 @@ class _SignUpState extends State<SignUp> {
             SizedBox(
               height: 16,
             ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 16),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30), color: Colors.white),
-              width: MediaQuery.of(context).size.width,
-              child: Text(
-                "Sign Up with Google",
-                style: TextStyle(fontSize: 17, color: CustomTheme.textColor),
-                textAlign: TextAlign.center,
+            GestureDetector(
+              onTap: () async {
+                await authService.signInWithGoogle(context);
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 16),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30), color: Colors.white),
+                width: MediaQuery.of(context).size.width,
+                child: Text(
+                  "Sign Up with Google",
+                  style: TextStyle(fontSize: 17, color: CustomTheme.textColor),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
             SizedBox(
