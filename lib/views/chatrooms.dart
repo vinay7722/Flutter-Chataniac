@@ -115,14 +115,14 @@ class ChatRoomsTile extends StatelessWidget {
         ));
       },
       child: Padding(
-        padding: EdgeInsets.fromLTRB(5, 5, 5, 0),     //const EdgeInsets.all(5.0),
+        padding: EdgeInsets.fromLTRB(10, 10, 10, 0),     //const EdgeInsets.all(5.0),
         child: Material(
-          elevation: 15,
-          borderRadius: BorderRadius.circular(20),
+          elevation: 5,
+          borderRadius: BorderRadius.circular(25),
           child: Container(
             decoration: BoxDecoration(
-                color: Color(0xff141526),//CustomTheme.colorAccent,
-                borderRadius: BorderRadius.circular(20)),
+                color: Colors.grey.withOpacity(0.15),//CustomTheme.colorAccent,
+                borderRadius: BorderRadius.circular(25)),
             padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
             child: Row(
               children: [
@@ -148,7 +148,7 @@ class ChatRoomsTile extends StatelessWidget {
                 Text(userName,
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 25,
                         fontFamily: 'OverpassRegular',
                         fontWeight: FontWeight.w300))
