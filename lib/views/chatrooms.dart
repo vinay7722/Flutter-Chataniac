@@ -117,7 +117,9 @@ class ChatRoomsTile extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.fromLTRB(2, 2, 2, 5),     //const EdgeInsets.all(5.0),
         child: Container(
-          color: Color(0xff141526),
+          decoration: BoxDecoration(
+              color: Color(0xff141526),//CustomTheme.colorAccent,
+              borderRadius: BorderRadius.circular(40)),
           padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
           child: Row(
             children: [
