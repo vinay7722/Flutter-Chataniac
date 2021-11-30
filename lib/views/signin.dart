@@ -80,7 +80,7 @@ class _SignInState extends State<SignIn> {
               padding: EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                   children: [
-                    Spacer(),
+                    SizedBox(height: height * 0.4,),
                     Form(
                       key: formKey,
                       child: Column(
@@ -93,17 +93,20 @@ class _SignInState extends State<SignIn> {
                                 borderRadius: BorderRadius.circular(5),
                                 color: Colors.grey.withOpacity(0.1)
                               ),
-                              child: TextFormField(
-                                validator: (val) {
-                                  return RegExp(
-                                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                      .hasMatch(val)
-                                      ? null
-                                      : "Please Enter Correct Email";
-                                },
-                                controller: emailEditingController,
-                                style: simpleTextStyle(),
-                                decoration: textFieldInputDecoration("email"),
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 15),
+                                child: TextFormField(
+                                  validator: (val) {
+                                    return RegExp(
+                                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                        .hasMatch(val)
+                                        ? null
+                                        : "Please Enter Correct Email";
+                                  },
+                                  controller: emailEditingController,
+                                  style: simpleTextStyle(),
+                                  decoration: textFieldInputDecoration("Enter email"),
+                                ),
                               ),
                             ),
                           ),
@@ -116,16 +119,19 @@ class _SignInState extends State<SignIn> {
                                   borderRadius: BorderRadius.circular(5),
                                   color: Colors.grey.withOpacity(0.1)
                               ),
-                              child: TextFormField(
-                                obscureText: true,
-                                validator: (val) {
-                                  return val.length > 6
-                                      ? null
-                                      : "Enter Password 6+ characters";
-                                },
-                                style: simpleTextStyle(),
-                                controller: passwordEditingController,
-                                decoration: textFieldInputDecoration("password"),
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 15),
+                                child: TextFormField(
+                                  obscureText: true,
+                                  validator: (val) {
+                                    return val.length > 6
+                                        ? null
+                                        : "Enter Password 6+ characters";
+                                  },
+                                  style: simpleTextStyle(),
+                                  controller: passwordEditingController,
+                                  decoration: textFieldInputDecoration("Enter password"),
+                                ),
                               ),
                             ),
                           ),
