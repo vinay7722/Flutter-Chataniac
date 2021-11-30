@@ -162,39 +162,47 @@ class _SignInState extends State<SignIn> {
                       onTap: () {
                         signIn();
                       },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 16),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),//const Color(0xff007EF4) const Color(0xff2A75BC)
-                            gradient :LinearGradient(
-                              begin: Alignment.topLeft,
-                              end:Alignment(0.8, 0.0),
-                              colors :[Color(0xff007EF4),Color(0xff2A75BC)],
-                            )
-                        ),
-                        width: MediaQuery.of(context).size.width,
-                        child: Text(
-                          "Sign In",
-                          style: biggerTextStyle(),
-                          textAlign: TextAlign.center,
-                        ),
+                      child: Material(
+                        elevation: 7.0,
+                        borderRadius: BorderRadius.circular(30),
+                        child: Container(
+                          padding: EdgeInsets.symmetric(vertical: 16),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),//const Color(0xff007EF4) const Color(0xff2A75BC)
+                              gradient :LinearGradient(
+                                begin: Alignment.topLeft,
+                                end:Alignment(0.8, 0.0),
+                                colors :[Color(0xff007EF4),Color(0xff2A75BC)],
+                              )
+                          ),
+                          width: MediaQuery.of(context).size.width,
+                          child: Text(
+                            "Sign In",
+                            style: biggerTextStyle(),
+                            textAlign: TextAlign.center,
+                          ),
 
+                        ),
                       ),
                     ),
                     SizedBox(
                       height: 16,
                     ),
-                    Container(
-                      padding: EdgeInsets.symmetric(vertical: 16),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.blue),
-                      width: MediaQuery.of(context).size.width,
-                      child: Text(
-                        "Sign In with Google",
-                        style:
-                        TextStyle(fontSize: 17, color: CustomTheme.textColor),
-                        textAlign: TextAlign.center,
+                    Material(
+                      elevation: 7.0,
+                      borderRadius: BorderRadius.circular(30),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.blue),
+                        width: MediaQuery.of(context).size.width,
+                        child: Text(
+                          "Sign In with Google",
+                          style:
+                          biggerTextStyle(),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ),
                     SizedBox(
