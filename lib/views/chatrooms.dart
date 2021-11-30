@@ -115,39 +115,45 @@ class ChatRoomsTile extends StatelessWidget {
         ));
       },
       child: Padding(
-        padding: EdgeInsets.fromLTRB(2, 2, 2, 5),     //const EdgeInsets.all(5.0),
-        child: Container(
-          decoration: BoxDecoration(
-              color: Color(0xff141526),//CustomTheme.colorAccent,
-              borderRadius: BorderRadius.circular(40)),
-          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-          child: Row(
-            children: [
-              Container(
-                height: 30,
-                width: 30,
-                decoration: BoxDecoration(
-                    color: CustomTheme.colorAccent,
-                    borderRadius: BorderRadius.circular(40)),
-                child: Text(userName[0],
-                    textAlign: TextAlign.center,
+        padding: EdgeInsets.fromLTRB(5, 5, 5, 0),     //const EdgeInsets.all(5.0),
+        child: Material(
+          elevation: 15,
+          borderRadius: BorderRadius.circular(20),
+          child: Container(
+            decoration: BoxDecoration(
+                color: Color(0xff141526),//CustomTheme.colorAccent,
+                borderRadius: BorderRadius.circular(20)),
+            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+            child: Row(
+              children: [
+                Container(
+                  //height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
+                      color: CustomTheme.colorAccent,
+                      borderRadius: BorderRadius.circular(40)),
+                  child: Center(
+                    child: Text(userName[0],
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontFamily: 'OverpassRegular',
+                            fontWeight: FontWeight.w300)),
+                  ),
+                ),
+                SizedBox(
+                  width: 12,
+                ),
+                Text(userName,
+                    textAlign: TextAlign.start,
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 30,
+                        fontSize: 25,
                         fontFamily: 'OverpassRegular',
-                        fontWeight: FontWeight.w300)),
-              ),
-              SizedBox(
-                width: 12,
-              ),
-              Text(userName,
-                  textAlign: TextAlign.start,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontFamily: 'OverpassRegular',
-                      fontWeight: FontWeight.w300))
-            ],
+                        fontWeight: FontWeight.w300))
+              ],
+            ),
           ),
         ),
       ),
