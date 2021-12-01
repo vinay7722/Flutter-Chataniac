@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget appBarMain(BuildContext context) {
   return AppBar(
+    backgroundColor: Color(0xff0066ff),
     title: Text('Chataniac',
       style: TextStyle(
         fontFamily: 'Lobster',
