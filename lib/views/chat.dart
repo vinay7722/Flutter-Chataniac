@@ -83,7 +83,7 @@ class _ChatState extends State<Chat> {
               width: MediaQuery.of(context).size.width,
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 24, vertical: 7),
-                color: Color(0xff007EF4),
+                color: Color(0xff0066ff),
                 child: Row(
                   children: [
                     Expanded(

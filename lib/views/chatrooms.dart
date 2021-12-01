@@ -63,6 +63,7 @@ class _ChatRoomState extends State<ChatRoom> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xff0066ff),
         title: Text('Chataniac',
           style: TextStyle(
             fontFamily: 'Lobster',

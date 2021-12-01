@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Chat',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0xff145C9E),//ffffff
+        primaryColor: Color(0xff0066ff),//ffffff
         scaffoldBackgroundColor: Colors.white,
         accentColor: Color(0xff007EF4), //ffffff
         fontFamily: "OverpassRegular",
