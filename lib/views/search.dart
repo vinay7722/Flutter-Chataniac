@@ -1,5 +1,4 @@
 import 'package:chataniac/helper/constants.dart';
-import 'package:chataniac/models/user.dart';
 import 'package:chataniac/services/database.dart';
 import 'package:chataniac/views/chat.dart';
 import 'package:chataniac/widget/widget.dart';
@@ -81,14 +80,14 @@ class _SearchState extends State<Search> {
               Text(
                 userName,
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 16
                 ),
               ),
               Text(
                 userEmail,
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 16
                 ),
               )
@@ -146,7 +145,7 @@ class _SearchState extends State<Search> {
           children: [
             Container(
               padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-              color: Color(0x54FFFFFF),
+              color: Color(0x546C5F5F),
               child: Row(
                 children: [
                   Expanded(
@@ -156,7 +155,7 @@ class _SearchState extends State<Search> {
                       decoration: InputDecoration(
                           hintText: "search username ...",
                           hintStyle: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 16,
                           ),
                           border: InputBorder.none
