@@ -27,13 +27,18 @@ class DatabaseMethods {
         .get();
   }
 
-  bool documentOfUsersAlreadyExsits(users1, users2){
-    dynamic stream1 = FirebaseFirestore.instance.collection("chatRoom").where('users', isEqualTo: users1).get();
-    dynamic stream2 = FirebaseFirestore.instance.collection("chatRoom").where('users', isEqualTo: users2).get();
+  Future<bool> documentOfUsersAlreadyExsits(users1, users2) async {
+    print("inside");
+    QuerySnapshot stream1 = await FirebaseFirestore.instance.collection("chatRoom").where('users', isEqualTo: users1).get();
+    QuerySnapshot stream2 = await FirebaseFirestore.instance.collection("chatRoom").where('users', isEqualTo: users2).get();
 
-    if(stream1.hasData || stream2.hasData)
-      return true;
-    return false;
+    print(stream1.size + stream2.size);
+    if(stream1.size == 0 && stream2.size == 0){
+      print("false");
+      return false;
+    }
+    print("true");
+    return true;
   }
 
   Future<bool> addChatRoom(chatRoom, chatRoomId) {

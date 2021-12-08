@@ -49,14 +49,13 @@ class _SearchState extends State<Search> {
   }
 
   /// 1.create a chatroom, send user to the chatroom, other userdetails
-  sendMessage(String userEmail){
-    List<String> users1 = [Constants.myName,userEmail];
-    List<String> users2 = [userEmail, Constants.myName];
-    print(databaseMethods.documentOfUsersAlreadyExsits(users1, users2));
-    String chatRoomId = getChatRoomId(Constants.myName,userEmail);
+  sendMessage(String userName){
+    List<String> users = [Constants.myName,userName];
+
+    String chatRoomId = getChatRoomId(Constants.myName,userName);
 
     Map<String, dynamic> chatRoom = {
-      "users": users1,
+      "users": users,
       "chatRoomId" : chatRoomId,
     };
 
@@ -97,7 +96,7 @@ class _SearchState extends State<Search> {
           Spacer(),
           GestureDetector(
             onTap: (){
-              sendMessage(userEmail);
+              sendMessage(userName);
             },
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 12,vertical: 8),
