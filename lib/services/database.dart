@@ -27,6 +27,15 @@ class DatabaseMethods {
         .get();
   }
 
+  bool documentOfUsersAlreadyExsits(users1, users2){
+    dynamic stream1 = FirebaseFirestore.instance.collection("chatRoom").where('users', isEqualTo: users1).get();
+    dynamic stream2 = FirebaseFirestore.instance.collection("chatRoom").where('users', isEqualTo: users2).get();
+
+    if(stream1.hasData || stream2.hasData)
+      return true;
+    return false;
+  }
+
   Future<bool> addChatRoom(chatRoom, chatRoomId) {
     FirebaseFirestore.instance
         .collection("chatRoom")
