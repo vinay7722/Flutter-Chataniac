@@ -27,13 +27,16 @@ class _ChatRoomState extends State<ChatRoom> {
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 //print(snapshot.data.docs[index].data()['users'][1]);
-                return ChatRoomsTile(
-                  userName: snapshot.data.docs[index].data()['users'][1]
-                      .toString(),
-                      //.replaceAll("_", "")
-                      //.replaceAll(Constants.myName, ""),
-                  chatRoomId: snapshot.data.docs[index].data()["chatRoomId"],
-                );
+                if(snapshot.data.docs[index].data()['users'][1] != Constants.myName) {
+                  return ChatRoomsTile(
+                    userName: snapshot.data.docs[index].data()['users'][1]
+                        .toString(),
+                    //.replaceAll("_", "")
+                    //.replaceAll(Constants.myName, ""),
+                    chatRoomId: snapshot.data.docs[index].data()["chatRoomId"],
+                  );
+                }else
+                  return null;
               });
         } else {
           return Container();
