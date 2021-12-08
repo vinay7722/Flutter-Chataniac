@@ -53,7 +53,6 @@ class _SearchState extends State<Search> {
     List<String> users = [Constants.myName,userName];
 
     String chatRoomId = getChatRoomId(Constants.myName,userName);
-
     Map<String, dynamic> chatRoom = {
       "users": users,
       "chatRoomId" : chatRoomId,
