@@ -46,7 +46,7 @@ class _ChatState extends State<Chat> {
       Map<String, dynamic> chatMessageMap = {
         "sendBy": Constants.myName,
         "message": messageEditingController.text,
-        'time': DateTime.now().millisecondsSinceEpoch,
+        'time': DateTime.now(),
       };
 
       DatabaseMethods().addMessage(widget.chatRoomId, chatMessageMap);
