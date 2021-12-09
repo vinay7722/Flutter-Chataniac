@@ -6,6 +6,7 @@ import 'package:chataniac/services/auth.dart';
 import 'package:chataniac/services/database.dart';
 import 'package:chataniac/views/chat.dart';
 import 'package:chataniac/views/search.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 //for github
@@ -42,6 +43,20 @@ class _ChatRoomState extends State<ChatRoom> {
     );
   }
 
+  Future<void> showChats() async {
+    List<DocumentSnapshot> chats = [];
+    dynamic stream1 = await FirebaseFirestore.instance.collection("chatRoom").doc("person4_person3").collection("chats").get();
+    for(int i = 0; i < stream1.size; i++)
+      chats.add(stream1.docs[i]);
+
+    dynamic stream2 = await FirebaseFirestore.instance.collection("chatRoom").doc("person3_person4").collection("chats").get();
+    for(int i = 0; i < stream2.size; i++)
+      chats.add(stream2.docs[i]);
+
+    chats.sort((a, b) => a['time'].compareTo(b['time']));
+    for(dynamic chat in chats)
+      print(chat['message']);
+  }
   @override
   void initState() {
     getUserInfogetChats();
@@ -62,6 +77,7 @@ class _ChatRoomState extends State<ChatRoom> {
 
   @override
   Widget build(BuildContext context) {
+    showChats();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff0066ff),
