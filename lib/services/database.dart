@@ -32,12 +32,9 @@ class DatabaseMethods {
     QuerySnapshot stream1 = await FirebaseFirestore.instance.collection("chatRoom").where('users', isEqualTo: users1).get();
     QuerySnapshot stream2 = await FirebaseFirestore.instance.collection("chatRoom").where('users', isEqualTo: users2).get();
 
-    print(stream1.size + stream2.size);
     if(stream1.size == 0 && stream2.size == 0){
-      print("false");
       return false;
     }
-    print("true");
     return true;
   }
 
