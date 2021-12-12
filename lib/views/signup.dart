@@ -76,40 +76,83 @@ class _SignUpState extends State<SignUp> {
                       key: formKey,
                       child: Column(
                         children: [
-                          TextFormField(
-                            style: simpleTextStyle(),
-                            controller: usernameEditingController,
-                            validator: (val) {
-                              return val.isEmpty || val.length < 3
-                                  ? "Enter Username 3+ characters"
-                                  : null;
-                            },
-                            decoration:
-                                textFieldInputDecoration("Enter Username"),
+                          Material(
+                            elevation: 2.0,
+                            borderRadius: BorderRadius.circular(5),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: Colors.grey.withOpacity(0.1)
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 15),
+                                child: TextFormField(
+                                  style: simpleTextStyle(),
+                                  controller: usernameEditingController,
+                                  validator: (val) {
+                                    return val.isEmpty || val.length < 3
+                                        ? "Enter Username 3+ characters"
+                                        : null;
+                                  },
+                                  decoration:
+                                      textFieldInputDecoration("Enter Username"),
+                                ),
+                              ),
+                            ),
                           ),
-                          TextFormField(
-                            controller: emailEditingController,
-                            style: simpleTextStyle(),
-                            validator: (val) {
-                              return RegExp(
-                                          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                      .hasMatch(val)
-                                  ? null
-                                  : "Enter correct email";
-                            },
-                            decoration: textFieldInputDecoration("Enter Email"),
+                          SizedBox(height: height * 0.01),
+
+                          Material(
+                            elevation: 2.0,
+                            borderRadius: BorderRadius.circular(5),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: Colors.grey.withOpacity(0.1)
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 15),
+                                child: TextFormField(
+                                  controller: emailEditingController,
+                                  style: simpleTextStyle(),
+                                  validator: (val) {
+                                    return RegExp(
+                                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                            .hasMatch(val)
+                                        ? null
+                                        : "Enter correct email";
+                                  },
+                                  decoration: textFieldInputDecoration("Enter Email"),
+                                ),
+                              ),
+                            ),
                           ),
-                          TextFormField(
-                            obscureText: true,
-                            style: simpleTextStyle(),
-                            decoration:
-                                textFieldInputDecoration("Enter Password"),
-                            controller: passwordEditingController,
-                            validator: (val) {
-                              return val.length < 6
-                                  ? "Enter Password 6+ characters"
-                                  : null;
-                            },
+                          SizedBox(height: height * 0.01),
+
+                          Material(
+                            elevation: 2.0,
+                            borderRadius: BorderRadius.circular(5),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: Colors.grey.withOpacity(0.1)
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 15),
+                                child: TextFormField(
+                                  obscureText: true,
+                                  style: simpleTextStyle(),
+                                  decoration:
+                                      textFieldInputDecoration("Enter Password"),
+                                  controller: passwordEditingController,
+                                  validator: (val) {
+                                    return val.length < 6
+                                        ? "Enter Password 6+ characters"
+                                        : null;
+                                  },
+                                ),
+                              ),
+                            ),
                           ),
                         ],
                       ),
