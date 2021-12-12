@@ -55,6 +55,8 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: appBarMain(context),
       body: isLoading
@@ -63,123 +65,126 @@ class _SignUpState extends State<SignUp> {
                 child: CircularProgressIndicator(),
               ),
             )
-          : Container(
-              padding: EdgeInsets.symmetric(horizontal: 24),
-              child: Column(
-                children: [
-                  Spacer(),
-                  Form(
-                    key: formKey,
-                    child: Column(
+          : SingleChildScrollView(
+            child: Container(
+                height: height,
+                padding: EdgeInsets.symmetric(horizontal: 24),
+                child: Column(
+                  children: [
+                    SizedBox(height: height * 0.35,),
+                    Form(
+                      key: formKey,
+                      child: Column(
+                        children: [
+                          TextFormField(
+                            style: simpleTextStyle(),
+                            controller: usernameEditingController,
+                            validator: (val) {
+                              return val.isEmpty || val.length < 3
+                                  ? "Enter Username 3+ characters"
+                                  : null;
+                            },
+                            decoration:
+                                textFieldInputDecoration("Enter Username"),
+                          ),
+                          TextFormField(
+                            controller: emailEditingController,
+                            style: simpleTextStyle(),
+                            validator: (val) {
+                              return RegExp(
+                                          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                      .hasMatch(val)
+                                  ? null
+                                  : "Enter correct email";
+                            },
+                            decoration: textFieldInputDecoration("Enter Email"),
+                          ),
+                          TextFormField(
+                            obscureText: true,
+                            style: simpleTextStyle(),
+                            decoration:
+                                textFieldInputDecoration("Enter Password"),
+                            controller: passwordEditingController,
+                            validator: (val) {
+                              return val.length < 6
+                                  ? "Enter Password 6+ characters"
+                                  : null;
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        signUp();
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.blueAccent),
+                        width: MediaQuery.of(context).size.width,
+                        child: Text(
+                          "Sign Up",
+                          style: biggerTextStyle(),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    GestureDetector(
+                      onTap: () async {
+                        await authService.signInWithGoogle(context);
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.blueAccent),
+                        width: MediaQuery.of(context).size.width,
+                        child: Text(
+                          "Sign Up with Google",
+                          style: biggerTextStyle(),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextFormField(
+                        Text(
+                          "Already have an account? ",
                           style: simpleTextStyle(),
-                          controller: usernameEditingController,
-                          validator: (val) {
-                            return val.isEmpty || val.length < 3
-                                ? "Enter Username 3+ characters"
-                                : null;
-                          },
-                          decoration:
-                              textFieldInputDecoration("Enter Username"),
                         ),
-                        TextFormField(
-                          controller: emailEditingController,
-                          style: simpleTextStyle(),
-                          validator: (val) {
-                            return RegExp(
-                                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                    .hasMatch(val)
-                                ? null
-                                : "Enter correct email";
+                        GestureDetector(
+                          onTap: () {
+                            widget.toggleView();
                           },
-                          decoration: textFieldInputDecoration("Enter Email"),
-                        ),
-                        TextFormField(
-                          obscureText: true,
-                          style: simpleTextStyle(),
-                          decoration:
-                              textFieldInputDecoration("Enter Password"),
-                          controller: passwordEditingController,
-                          validator: (val) {
-                            return val.length < 6
-                                ? "Enter Password 6+ characters"
-                                : null;
-                          },
+                          child: Text(
+                            "SignIn now",
+                            style: TextStyle(
+                                color: Colors.black87,
+                                fontSize: 16,
+                                decoration: TextDecoration.underline),
+                          ),
                         ),
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      signUp();
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 16),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.blueAccent),
-                      width: MediaQuery.of(context).size.width,
-                      child: Text(
-                        "Sign Up",
-                        style: biggerTextStyle(),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  GestureDetector(
-                    onTap: () async {
-                      await authService.signInWithGoogle(context);
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 16),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.blueAccent),
-                      width: MediaQuery.of(context).size.width,
-                      child: Text(
-                        "Sign Up with Google",
-                        style: biggerTextStyle(),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Already have an account? ",
-                        style: simpleTextStyle(),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          widget.toggleView();
-                        },
-                        child: Text(
-                          "SignIn now",
-                          style: TextStyle(
-                              color: Colors.black87,
-                              fontSize: 16,
-                              decoration: TextDecoration.underline),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 50,
-                  )
-                ],
+                    SizedBox(
+                      height: 50,
+                    )
+                  ],
+                ),
               ),
-            ),
+          ),
     );
   }
 }
